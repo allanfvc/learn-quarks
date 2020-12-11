@@ -24,7 +24,5 @@ O Quarkus foi criado priorizando containers, visando combater agilizar a entrega
 * Pré-inicialização de imagens nativas;
 * Desenvolvimento reativo não bloqueante
 
-O Quarkus é uma solução eficaz para executar o Java neste novo mundo de arquitetura serverless, microsserviços, containers, Kubernetes, função como serviço \(FaaS\) e nuvem, pois ele foi criado levando todas essas tecnologias em consideração. 
-
-
+O Quarkus é uma solução eficaz para executar o Java neste novo mundo de arquitetura serverless, microsserviços, containers, Kubernetes, função como serviço \(FaaS\) e nuvem, pois ele foi criado levando todas essas tecnologias em consideração.
 
