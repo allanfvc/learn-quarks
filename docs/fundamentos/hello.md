@@ -52,13 +52,6 @@ Neste exemplo é usado o pacote [RESTassured](https://rest-assured.io/) que é i
 
 A função estática `io.restassured.RestAssured.given` inicia o teste definindo os parâmetros da sua execução, ou definindo o estado inicial do teste, retornando o objeto `RequestSpecification` que contém o contexto do teste. Depois de definido o estado inicial do teste é determinada qual a ação que será executada sobre esse estado, que é a método `when()` do objeto `RequestSpecification`. Por fim basta conferir se o resultado obtido é o mesmo que o esperado, o termo `então`, utilizando o método `then()` do objeto `RequestSpecification`. Por exemplo: 
 ```java
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
-
-import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.Test;
-import org.apache.http.HttpStatus;
-
 @QuarkusTest
 public class HelloResourceTest {
 
@@ -73,3 +66,52 @@ public class HelloResourceTest {
 }
 ```
 
+Para rodar os testes basta usar o comando `mvn test` que irá executar todos os testes do seu projeto, no momento o teste escrito irá falhar pois o endpoint `hello` ainda não foi implementado, como visto logo abaixo:
+
+```bash
+[INFO]
+[INFO] Results:
+[INFO]
+[ERROR] Failures:
+[ERROR]   HelloResourceTest.testHelloEndpoint:19 1 expectation failed.
+Expected status code <200> but was <404>.
+[INFO]
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  05:32 min
+[INFO] Finished at: 2020-12-15T15:58:28-05:00
+[INFO] ------------------------------------------------------------------------
+```
+
+Agora será adicionado o código para fazer o teste passar:
+
+```java
+@Path("/hello")
+public class HelloResource {
+
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  public String hello() {
+      return "Hello World!";
+  }
+}
+```
+
+Rodando novamente o comando `mvn test`, fica claro que o teste foi um sucesso:
+
+```bash
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  39.855 s
+[INFO] Finished at: 2020-12-15T16:04:19-05:00
+[INFO] ------------------------------------------------------------------------
+```
