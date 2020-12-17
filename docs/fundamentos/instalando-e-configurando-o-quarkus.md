@@ -49,9 +49,9 @@ export PATH=$GRAALVM_HOME/bin:$PATH
 
 ## Instalando o Native Image
 
-Native Image é uma tecnologia para compilar antecipadamente o código Java em um executável independente, chamado de `native image`. Esse executável inclui as classes de aplicativo, classes de suas dependências, classes de biblioteca de tempo de execução e código nativo vinculado estaticamente do JDK. 
+Native Image é uma tecnologia para compilar antecipadamente o código Java em um executável independente, chamado de `native image`. Esse executável inclui as classes de aplicativo, classes de suas dependências, classes de biblioteca de tempo de execução e código nativo vinculado estaticamente do JDK.
 
-Ele não é executado no Java VM, mas inclui componentes necessários, como gerenciamento de memória, agendamento de thread e assim por diante, de um sistema de tempo de execução diferente, chamado “Substrate VM”. 
+Ele não é executado no Java VM, mas inclui componentes necessários, como gerenciamento de memória, agendamento de thread e assim por diante, de um sistema de tempo de execução diferente, chamado “Substrate VM”.
 
 Substrate VM é o nome dos componentes de tempo de execução \(como desotimizador, coletor de lixo, agendamento de thread, etc.\). O programa resultante tem um tempo de inicialização mais rápido e menor sobrecarga de memória de tempo de execução em comparação com uma JVM. Para adicionar a instalação da GraalVM basta rodar o seguinte comando:
 
