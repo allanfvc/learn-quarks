@@ -1,4 +1,4 @@
-# Learn Quarkus
+# Aprendendo Quarkus
 
 📜 Repositório dedicado a aprendizagem de  Quarkus com TDD.
 
