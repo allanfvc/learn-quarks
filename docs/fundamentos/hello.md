@@ -1,6 +1,6 @@
 # Hello, World
 
-[O código fonte deste capítulo pode ser encontrado aqui.](../../src/hello-world)
+[O código fonte deste capítulo pode ser encontrado aqui.](https://github.com/allanfvc/learn-quarkus/tree/ba0967d44d272aaff54c0314a19d593d7a3dedc9/src/hello-world/README.md)
 
 Como tradicionalmente no aprendizado de tecnologias de programação, o primeiro programa é uma `Hello, World`. Para iniciar um projeto Quarkus abra o terminal e digite:
 
@@ -14,6 +14,7 @@ mvn io.quarkus:quarkus-maven-plugin:1.10.3.Final:create \
     -Dpath="<path>"
 ```
 {% endtab %}
+
 {% tab title="Gradle" %}
 ```bash
 mvn io.quarkus:quarkus-maven-plugin:1.10.3.Final:create \
@@ -26,7 +27,7 @@ mvn io.quarkus:quarkus-maven-plugin:1.10.3.Final:create \
 {% endtab %}
 {% endtabs %}
 
-Onde ***\<group-id\>*** é o id da organização, ***\<artifact-id\>***  é o nome do projeto que será gerado, ***\<java-class\>*** é utilizado para definir a classe inicial criada pelo plugin com um código de exemplo para iniciar o desenvolvimento e o ***\<path\>*** determinar o endpoint que irá representar a classe inicial.
+Onde _**\**_ é o id da organização, _**\**_ é o nome do projeto que será gerado, _**\**_ é utilizado para definir a classe inicial criada pelo plugin com um código de exemplo para iniciar o desenvolvimento e o _**\**_ determinar o endpoint que irá representar a classe inicial.
 
 ## Como testar
 
@@ -48,9 +49,10 @@ public class HelloResourceTest {
 }
 ```
 
-Neste exemplo é usado o pacote [RESTassured](https://rest-assured.io/) que é integrado ao Quarkus e vem como padrão ao executar o comando de criação mostrado acima. O RESTassured facilita na criação e leitura de testes com uma sintaxe semelhante a utilizada na linguagem gherkin, seguindo um fluxo dado que, quando e então(given, when, then) para determinar o que acontece no teste.
+Neste exemplo é usado o pacote [RESTassured](https://rest-assured.io/) que é integrado ao Quarkus e vem como padrão ao executar o comando de criação mostrado acima. O RESTassured facilita na criação e leitura de testes com uma sintaxe semelhante a utilizada na linguagem gherkin, seguindo um fluxo dado que, quando e então\(given, when, then\) para determinar o que acontece no teste.
 
-A função estática `io.restassured.RestAssured.given` inicia o teste definindo os parâmetros da sua execução, ou definindo o estado inicial do teste, retornando o objeto `RequestSpecification` que contém o contexto do teste. Depois de definido o estado inicial do teste é determinada qual a ação que será executada sobre esse estado, que é a método `when()` do objeto `RequestSpecification`. Por fim basta conferir se o resultado obtido é o mesmo que o esperado, o termo `então`, utilizando o método `then()` do objeto `RequestSpecification`. Por exemplo: 
+A função estática `io.restassured.RestAssured.given` inicia o teste definindo os parâmetros da sua execução, ou definindo o estado inicial do teste, retornando o objeto `RequestSpecification` que contém o contexto do teste. Depois de definido o estado inicial do teste é determinada qual a ação que será executada sobre esse estado, que é a método `when()` do objeto `RequestSpecification`. Por fim basta conferir se o resultado obtido é o mesmo que o esperado, o termo `então`, utilizando o método `then()` do objeto `RequestSpecification`. Por exemplo:
+
 ```java
 @QuarkusTest
 public class HelloResourceTest {
@@ -115,3 +117,4 @@ Rodando novamente o comando `mvn test`, fica claro que o teste foi um sucesso:
 [INFO] Finished at: 2020-12-15T16:04:19-05:00
 [INFO] ------------------------------------------------------------------------
 ```
+
